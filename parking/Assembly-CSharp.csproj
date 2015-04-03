@@ -46,10 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Gui_Layout.cs" />
-     <Compile Include="Assets\Map_Rotate.cs" />
-     <Compile Include="Assets\Map_Select.cs" />
-     <Compile Include="Assets\Menu_Select.cs" />
+     <Compile Include="Assets\Script\Gui_Layout.cs" />
+     <Compile Include="Assets\Script\Map_Rotate.cs" />
+     <Compile Include="Assets\Script\Map_Select.cs" />
+     <Compile Include="Assets\Script\Menu_Select.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
