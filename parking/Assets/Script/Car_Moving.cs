@@ -24,6 +24,15 @@ public class Car_Moving : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		// scene move test
+		if ( Input.GetKey ( KeyCode.X ) ) {
+			Application.LoadLevel ( "Game_Scene" );
+		}
+		
+		if ( Input.GetKey ( KeyCode.Z ) ) {
+			Application.LoadLevel ( "SelectMap_Scene" );
+		}
 		
 		/** Sound 
 		body.transform.GetComponent<AudioSource>().pitch = Engine_meter;	
