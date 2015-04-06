@@ -14,8 +14,6 @@ public class Camera_Moving : MonoBehaviour {
 	public GUIStyle buttons;
 
 
-	//---------------------------MANAGER OF THE SCENE...------------------------------
-
 	void Start () {
 
 		CAR_bool = true;
@@ -44,21 +42,11 @@ public class Camera_Moving : MonoBehaviour {
 
 	}
 
-
-
 	void OnGUI()
 
 	{
-		//GUI.Label(new Rect(10,10,1,1),"CAR TUTORIAL by matt",Title);
+		//GUI.Label(new Rect(10,10,1,1),"CAR Handle Turning: ", Title);
 
-		//GUI.Label(new Rect(10,60,1,1),"Press number 1 to change CAR_V1",buttons);
-		//GUI.Label(new Rect(10,90,1,1),"Press number 2 to change CAR_V2",buttons);
-		//GUI.Label(new Rect(10,120,1,1),"Press number 3 to change CAR_V3",buttons);
-		//GUI.Label(new Rect(10,150,1,1),"Press number 4 to change TRUCK",buttons);
-
-		//GUI.Label(new Rect(10,200,1,1),"Press H to change Normal Material",buttons);
-		//GUI.Label(new Rect(10,230,1,1),"Press J to change Transparent Material",buttons);
-		//GUI.Label(new Rect(10,290,1,1),"Press ESC to QUIT",buttons);
 
 		/*if(GUI.Button(new Rect(Screen.width-550,Screen.height-30,300,50),"MATTS CREATIONS OFFICIAL SITE",buttons))
 		{

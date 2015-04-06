@@ -9,16 +9,13 @@ public class Car_Collider : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-	
+	void Update () {	
 	
 	}
 
 	void OnCollisionEnter(Collision col){
 
-		Application.LoadLevel ("Game_Scene");
-		
+		Application.LoadLevel("Game_Over");
 	}
 
 }

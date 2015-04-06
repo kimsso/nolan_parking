@@ -52,7 +52,7 @@ public class Car_Moving : MonoBehaviour {
 		
 		//position of moving car 
 		this.transform.position += this.transform.forward * speed * Time.deltaTime;
-		
+				
 		main_cam.transform.position = Vector3.Lerp(main_cam.transform.position,car_cam.transform.position,0.05f);
 		main_cam.transform.rotation = Quaternion.Lerp(main_cam.transform.rotation,car_cam.transform.rotation,0.05f);
 		
@@ -60,6 +60,7 @@ public class Car_Moving : MonoBehaviour {
 		if(Input.GetAxis("Vertical")>0)
 		{
 			speed = Mathf.Lerp(speed,MAXspeed,acceleration);
+			this.transform.Rotate(Vector3.up	 * turning);
 		}		
 		else
 		{
@@ -69,42 +70,42 @@ public class Car_Moving : MonoBehaviour {
 		if(Input.GetAxis("Vertical")<0)
 		{
 			speed = Mathf.Lerp(speed,MINspeed,acceleration);
+			this.transform.Rotate(-Vector3.up	 * turning);
 		}
 		
 		/** direction, left/right **/
 		if(Input.GetAxis("Horizontal")>0) //right key down
 		{
-			if(turning < 0.5f)
-				turning += 0.03f;
+			if(turning < 0.5f){
+				turning += 0.005f;
+			}
 
-
-			this.transform.Rotate (Vector3.up * turning * Input.GetAxis("Vertical"));
+			//this.transform.Rotate (Vector3.up * turning * Input.GetAxis("Vertical"));
 			/*
 			if(Input.GetAxis("Vertical")>0 ) //전진일때
 				this.transform.Rotate(Vector3.up	 * turning); //시계방향
 
 			if(Input.GetAxis ("Vertical")<0) //후진일때
 				this.transform.Rotate (-Vector3.up * turning); //반시계방향	
-
-			*/
-				
+				*/
+							
 		}
 		
 		if(Input.GetAxis("Horizontal")<0) //left key down
 		{
-			if(turning > -0.5f)
-				turning -= 0.03f;
+			if(turning > -0.5f){
+				turning -= 0.005f;
+			}
 
-			this.transform.Rotate (Vector3.up * turning * Input.GetAxis("Vertical"));
-
+			//this.transform.Rotate (Vector3.up * turning * Input.GetAxis("Vertical"));
 			/*
 			if(Input.GetAxis("Vertical")>0) //전진일때
 				this.transform.Rotate(Vector3.up	 * turning); //반시계방향
 
 			if(Input.GetAxis ("Vertical")<0) //후진일때
 				this.transform.Rotate (-Vector3.up * turning); //시계방향	
-			*/
-				
+				*/				
 		}
 	}
+
 }
