@@ -13,6 +13,11 @@ public class Menu_Select : MonoBehaviour {
 	public GameObject menuCredits;
 	public GameObject menuExit;
 
+	public GameObject pageHelp;
+	public GameObject pageCredits;
+	public bool isPageOpen = false;
+
+
 	public string sceneName;
 
 	// Use this for initialization
@@ -23,6 +28,7 @@ public class Menu_Select : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	
 		if (Time.time > enableSelectTime) {
 			enableSelectTime = Time.time + selectDelay;
 
@@ -58,19 +64,54 @@ public class Menu_Select : MonoBehaviour {
 				menuExit.SetActive ( true );
 			}
 
-		}
 
-		if ( Input.GetKey ( KeyCode.X ) ) {
-			if ( selectedNum == 1 ) {
-				Application.LoadLevel ( sceneName );
+
+			// 선택 키 처리,
+			if ( Input.GetKey ( KeyCode.X ) ) {
+				
+				// 상세 페이지 오픈 시 
+				if ( isPageOpen ) {
+					pageHelp.SetActive ( false );
+					pageCredits.SetActive ( false );
+					isPageOpen = false;
+				}
+				// 기본 UI 조작
+				else {
+					if ( selectedNum == 1 ) {
+						Application.LoadLevel ( sceneName );
+					} else if ( selectedNum == 2 ) {
+						pageHelp.SetActive ( true );
+						isPageOpen = true;
+					} else if ( selectedNum == 3 ) {
+						pageCredits.SetActive ( true );
+						isPageOpen = true;
+					} else if ( selectedNum == 4 ) {
+						// 종료!
+					}
+					
+				}
+			}
+			
+			// 취소 키 처리,
+			if ( Input.GetKey ( KeyCode.Z ) ) {
+				// 상세 페이지 오픈 시 
+				if ( isPageOpen ) {
+					pageHelp.SetActive ( false );
+					pageCredits.SetActive ( false );
+					isPageOpen = false;
+				}
+				// 기본 UI 조작
+				else {
+					selectedNum = 4;	
+				}
 
 			}
 
+
+
 		}
 
-		if ( Input.GetKey ( KeyCode.Z ) ) {
-			selectedNum = 4;
-		}
+
 
 
 	}
