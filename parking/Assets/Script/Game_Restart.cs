@@ -14,7 +14,7 @@ public class Game_Restart : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if( GUI.Button(new Rect(200, 150, 60, 25), "Restart") == true )
+		if( GUI.Button(new Rect(Screen.width/2-35, Screen.height/2+10, 60, 25), "Restart") == true )
 		   Application.LoadLevel("Game_Scene");		
 	}
 }
