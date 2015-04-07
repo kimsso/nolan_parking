@@ -45,8 +45,6 @@ public class Camera_Moving : MonoBehaviour {
 	void OnGUI()
 
 	{
-		GUI.Label(new Rect(10,10,1,1),"CAR Handle Turning: ", Title);
-		
 		/*if(GUI.Button(new Rect(Screen.width-550,Screen.height-30,300,50),"MATTS CREATIONS OFFICIAL SITE",buttons))
 		{
 			Application.OpenURL("http://matts-creations.webnode.sk/");

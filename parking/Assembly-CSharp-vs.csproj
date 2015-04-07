@@ -47,9 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Camera_Moving.cs" />
-     <Compile Include="Assets\Script\Camera_Reflection.cs" />
      <Compile Include="Assets\Script\Car_Collider.cs" />
      <Compile Include="Assets\Script\Car_Moving.cs" />
+     <Compile Include="Assets\Script\GameScene_Option.cs" />
+     <Compile Include="Assets\Script\Game_PassFail.cs" />
      <Compile Include="Assets\Script\Game_Restart.cs" />
      <Compile Include="Assets\Script\Gui_Layout.cs" />
      <Compile Include="Assets\Script\Map_Rotate.cs" />
