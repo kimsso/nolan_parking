@@ -11,12 +11,13 @@ public class Car_Moving : MonoBehaviour {
 	
 	public float MAXspeed;
 	public float MINspeed;
-	
-	public float brake;
+
 	public float turning;
+	public float brake;
 	
 	public float Engine_meter;
-	
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -26,13 +27,17 @@ public class Car_Moving : MonoBehaviour {
 	void Update () {
 
 		// scene move test
-		if ( Input.GetKey ( KeyCode.X ) ) {
+		if(Input.GetKey (KeyCode.X )) {
 			Application.LoadLevel ( "Game_Scene" );
 		}
 		
-		if ( Input.GetKey ( KeyCode.Z ) ) {
+		if(Input.GetKey (KeyCode.Z)) {
 			Application.LoadLevel ( "SelectMap_Scene" );
 		}
+
+		if(Input.GetKey (KeyCode.Space))
+			speed = Mathf.Lerp(speed,0,brake);
+
 		
 		/** Sound 
 		body.transform.GetComponent<AudioSource>().pitch = Engine_meter;	
@@ -50,9 +55,8 @@ public class Car_Moving : MonoBehaviour {
 			Engine_meter = 7;
 		}**/
 		
-		//position of moving car 
 		this.transform.position += this.transform.forward * speed * Time.deltaTime;
-				
+
 		main_cam.transform.position = Vector3.Lerp(main_cam.transform.position,car_cam.transform.position,0.05f);
 		main_cam.transform.rotation = Quaternion.Lerp(main_cam.transform.rotation,car_cam.transform.rotation,0.05f);
 		
@@ -77,34 +81,16 @@ public class Car_Moving : MonoBehaviour {
 		if(Input.GetAxis("Horizontal")>0) //right key down
 		{
 			if(turning < 0.5f){
-				turning += 0.005f;
-			}
-
-			//this.transform.Rotate (Vector3.up * turning * Input.GetAxis("Vertical"));
-			/*
-			if(Input.GetAxis("Vertical")>0 ) //전진일때
-				this.transform.Rotate(Vector3.up	 * turning); //시계방향
-
-			if(Input.GetAxis ("Vertical")<0) //후진일때
-				this.transform.Rotate (-Vector3.up * turning); //반시계방향	
-				*/
-							
+				turning += 0.05f;
+			}								
 		}
 		
 		if(Input.GetAxis("Horizontal")<0) //left key down
 		{
 			if(turning > -0.5f){
-				turning -= 0.005f;
+				turning -= 0.05f;
 			}
-
 			//this.transform.Rotate (Vector3.up * turning * Input.GetAxis("Vertical"));
-			/*
-			if(Input.GetAxis("Vertical")>0) //전진일때
-				this.transform.Rotate(Vector3.up	 * turning); //반시계방향
-
-			if(Input.GetAxis ("Vertical")<0) //후진일때
-				this.transform.Rotate (-Vector3.up * turning); //시계방향	
-				*/				
 		}
 	}
 

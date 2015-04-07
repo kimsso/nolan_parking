@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Camera_Moving.cs" />
+     <Compile Include="Assets\Script\Camera_Reflection.cs" />
      <Compile Include="Assets\Script\Car_Collider.cs" />
      <Compile Include="Assets\Script\Car_Moving.cs" />
      <Compile Include="Assets\Script\Game_Restart.cs" />
