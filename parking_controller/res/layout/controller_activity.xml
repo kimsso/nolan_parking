@@ -1,0 +1,154 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.controller.StartActivity" >
+
+    <ImageButton
+        android:id="@+id/Gear_P"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/Accel_Pedal"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gear_p" />
+
+    <ImageButton
+        android:id="@+id/Accel_Pedal"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:background="#fff" />
+    <!-- android:scaleType="fitCenter" android:src="@drawable/accel_pedal" -->
+
+    <ImageButton
+        android:id="@+id/Break_Pedal"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/Accel_Pedal"
+        android:background="#fff"
+        android:scaleType="fitCenter"
+        android:src="@drawable/break_pedal" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <Spinner
+            android:id="@+id/scale"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textrotate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Rotate : 0"
+            android:textSize="20px" />
+
+        <SeekBar
+            android:id="@+id/rotate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5px"
+            android:max="360"
+            android:progress="0" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5px"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textskewx"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Skew-X: 0"
+                    android:textSize="20px" />
+
+                <SeekBar
+                    android:id="@+id/skewx"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:max="200"
+                    android:progress="100" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5px"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textskewy"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Skew-Y: 0"
+                    android:textSize="20px" />
+
+                <SeekBar
+                    android:id="@+id/skewy"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:max="200"
+                    android:progress="100" />
+            </LinearLayout>
+            
+             <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5px"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/x"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="acc-x: 0"
+                    android:textColor="#808080"
+                    android:textSize="20px" />
+                
+                <TextView
+                    android:id="@+id/y"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="acc-y: 0"
+                    android:textSize="20px" />
+                
+                <TextView
+                    android:id="@+id/z"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="acc-z: 0"
+                    android:textColor="#808080"
+                    android:textSize="20px" />
+
+               
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
