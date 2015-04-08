@@ -5,9 +5,36 @@ public class GameScene_Option : MonoBehaviour {
 	
 	bool optionFlag;
 
+	public GameObject parkingSpot1;
+	public GameObject parkingSpot2;
+	public GameObject parkingSpot3;
+	public GameObject parkingSpot4;
+
+	public int spotNum;
+
 	// Use this for initialization
 	void Start () {
 		optionFlag=false;
+
+		System.Random r = new System.Random ();
+
+		spotNum = r.Next (1, 5);
+
+		switch (spotNum) {
+		case 1:
+			parkingSpot1.SetActive(true);
+			break;
+		case 2:
+			parkingSpot2.SetActive(true);
+			break;
+		case 3:
+			parkingSpot3.SetActive(true);
+			break;
+		case 4:
+			parkingSpot4.SetActive(true);
+			break;
+		}
+
 	}
 	
 	// Update is called once per frame
