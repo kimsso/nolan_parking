@@ -5,7 +5,8 @@ public class Car_Moving : MonoBehaviour {
 	
 	public GameObject main_cam;
 	public GameObject car_cam;
-	
+	public GameObject spot;
+
 	public float speed;
 	public float acceleration;
 	
@@ -31,6 +32,7 @@ public class Car_Moving : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		// press option key
 		if(Input.GetKey (KeyCode.O)) 
 			optionFlag=true;
@@ -38,6 +40,12 @@ public class Car_Moving : MonoBehaviour {
 		if(Input.GetKey (KeyCode.Z))
 			optionFlag=false;
 
+		if(Input.GetKey (KeyCode.P)){
+			if( spot.GetComponent<Game_PassFail>().success_flag )
+			   	Application.LoadLevel("Game_Success");
+			else
+				Application.LoadLevel ("Game_Over");
+		}
 
 		if(!optionFlag){
 			/*

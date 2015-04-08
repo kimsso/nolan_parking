@@ -18,6 +18,8 @@ public class Game_PassFail : MonoBehaviour {
 	Vector3 backLeft_pos;
 	Vector3 backRight_pos;
 
+	public bool success_flag;
+
 	public bool frontLeft_flag;
 	public bool frontRight_flag;
 	public bool backLeft_flag;
@@ -27,6 +29,8 @@ public class Game_PassFail : MonoBehaviour {
 	void Start () {
 		spot_pos=spot.GetComponent<Transform>().position;
 		spot_scale=spot.GetComponent<Transform>().localScale;
+
+		success_flag=false;
 
 		frontLeft_flag=false;
 		frontRight_flag=false;
@@ -48,12 +52,11 @@ public class Game_PassFail : MonoBehaviour {
 		backLeft_flag=ParkingPass(backLeft_pos);
 		backRight_flag=ParkingPass(backRight_pos);
 
-		if(Input.GetKey(KeyCode.P)){
-			if(frontLeft_flag && frontRight_flag && backLeft_flag && backRight_flag)
-				Application.LoadLevel("Game_Success");
-			else
-				Application.LoadLevel ("Game_Over");
-		}
+		if(frontLeft_flag && frontRight_flag && backLeft_flag && backRight_flag)
+			success_flag=true;
+		else
+			success_flag=false;
+
 	}
 
 	bool ParkingPass(Vector3 pos){
