@@ -5,6 +5,8 @@ public class GameScene_Option : MonoBehaviour {
 	
 	bool optionFlag;
 
+	public GameObject spot;
+
 	public GameObject parkingSpot1;
 	public GameObject parkingSpot2;
 	public GameObject parkingSpot3;
@@ -23,15 +25,19 @@ public class GameScene_Option : MonoBehaviour {
 		switch (spotNum) {
 		case 1:
 			parkingSpot1.SetActive(true);
+			spot = parkingSpot1;
 			break;
 		case 2:
 			parkingSpot2.SetActive(true);
+			spot = parkingSpot2;
 			break;
 		case 3:
 			parkingSpot3.SetActive(true);
+			spot = parkingSpot3;
 			break;
 		case 4:
 			parkingSpot4.SetActive(true);
+			spot = parkingSpot4;
 			break;
 		}
 
@@ -45,6 +51,13 @@ public class GameScene_Option : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.Z) ) {
 			optionFlag=false;
+		}
+
+		if(Input.GetKey (KeyCode.P)){
+			if( spot.GetComponent<Game_PassFail>().success_flag )
+				Application.LoadLevel("Game_Success");
+			else
+				Application.LoadLevel ("Game_Over");
 		}
 	}
 
