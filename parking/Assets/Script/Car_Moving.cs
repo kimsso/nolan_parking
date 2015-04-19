@@ -76,23 +76,33 @@ public class Car_Moving : MonoBehaviour {
 
 			main_cam.transform.position = Vector3.Lerp(main_cam.transform.position,car_cam.transform.position,0.05f);
 			main_cam.transform.rotation = Quaternion.Lerp(main_cam.transform.rotation,car_cam.transform.rotation,0.05f);
-			
+
+
 			/** speed up/down **/
 			if(Input.GetAxis("Vertical")>0)
 			{
 				speed = Mathf.Lerp(speed,MAXspeed,acceleration);
 				this.transform.Rotate(Vector3.up	 * turning);
 			}		
-			else
-			{
-				speed = Mathf.Lerp(speed,0,acceleration);
-			}
-			
-			if(Input.GetAxis("Vertical")<0)
+			else if(Input.GetAxis("Vertical")<0)
 			{
 				speed = Mathf.Lerp(speed,MINspeed,acceleration);
 				this.transform.Rotate(-Vector3.up	 * turning);
 			}
+			else
+			{
+				speed = Mathf.Lerp(speed,0,acceleration);
+
+				if (speed > 0.5 )
+					this.transform.Rotate(Vector3.up	 * turning);
+				else if (speed < -0.5 )
+					this.transform.Rotate(-Vector3.up	 * turning);
+				else
+					speed = 0;
+			}
+
+
+
 			
 			/** direction, left/right **/
 			if(Input.GetAxis("Horizontal")>0) //right key down
@@ -101,8 +111,7 @@ public class Car_Moving : MonoBehaviour {
 					turning += 0.03f;
 				}								
 			}
-			
-			if(Input.GetAxis("Horizontal")<0) //left key down
+			else if(Input.GetAxis("Horizontal")<0) //left key down
 			{
 				if(turning > -0.8f){
 					turning -= 0.03f;
