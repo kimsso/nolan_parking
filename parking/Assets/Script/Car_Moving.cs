@@ -75,7 +75,7 @@ public class Car_Moving : MonoBehaviour {
 			this.transform.position += this.transform.forward * speed * Time.deltaTime;
 
 			main_cam.transform.position = Vector3.Lerp(main_cam.transform.position,car_cam.transform.position,0.05f);
-			main_cam.transform.rotation = Quaternion.Lerp(main_cam.transform.rotation,car_cam.transform.rotation,0.05f);
+			//main_cam.transform.rotation = Quaternion.Lerp(main_cam.transform.rotation,car_cam.transform.rotation,0.05f);
 			
 			/** speed up/down **/
 			if(Input.GetAxis("Vertical")>0)
