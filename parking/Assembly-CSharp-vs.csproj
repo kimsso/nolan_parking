@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Camera_Moving.cs" />
      <Compile Include="Assets\Script\Car_Collider.cs" />
+     <Compile Include="Assets\Script\Car_Mirror.cs" />
      <Compile Include="Assets\Script\Car_Moving.cs" />
      <Compile Include="Assets\Script\GameScene_Option.cs" />
      <Compile Include="Assets\Script\Game_PassFail.cs" />
