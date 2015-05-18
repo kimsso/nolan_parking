@@ -15,7 +15,7 @@ public class Car_Collider : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col){
 
-		Application.LoadLevel("Game_Over");
+		//Application.LoadLevel("Game_Over");
 	}
 
 }
