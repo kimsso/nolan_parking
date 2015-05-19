@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Camera_Moving.cs" />
      <Compile Include="Assets\Script\Car_Collider.cs" />
+     <Compile Include="Assets\Script\Car_Handle.cs" />
      <Compile Include="Assets\Script\Car_Mirror.cs" />
      <Compile Include="Assets\Script\Car_Moving.cs" />
      <Compile Include="Assets\Script\GameScene_Option.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\Script\Map_Select.cs" />
      <Compile Include="Assets\Script\Menu_GameEnd.cs" />
      <Compile Include="Assets\Script\Menu_Select.cs" />
+     <Compile Include="Assets\Script\Mode_Select.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
