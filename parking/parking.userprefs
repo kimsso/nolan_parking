@@ -1,8 +1,17 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Car_Collider.cs">
     <Files>
       <File FileName="Assets\Script\Car_Collider.cs" Line="21" Column="2" />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Map_Select.cs">
+    <Files>
+      <File FileName="Assets\Script\Menu_GameEnd.cs" Line="45" Column="23" />
+      <File FileName="Assets\Script\Mode_Select.cs" Line="58" Column="26" />
+      <File FileName="Assets\Script\Map_Select.cs" Line="47" Column="18" />
+>>>>>>> e655263fa8d2d5d3be9eb05cb2600a618bbb22d1
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

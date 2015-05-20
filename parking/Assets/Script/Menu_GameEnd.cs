@@ -10,6 +10,7 @@ public class Menu_GameEnd : MonoBehaviour {
 	
 	public GameObject menuRestart;
 	public GameObject menuSelectMap;	
+	public GameObject menuSelectMode;
 	
 	public string sceneName;
 	
@@ -36,19 +37,27 @@ public class Menu_GameEnd : MonoBehaviour {
 			// selectedNum에 따른 커서 처리
 			if (selectedNum == 1) { // play
 				menuRestart.SetActive ( true );
-				menuSelectMap.SetActive ( false );
-				sceneName = "Game_Scene";
+				menuSelectMode.SetActive ( false );
+				if(Mode_Select.modeNum == 1){
+					sceneName = "Game_Scene";
+				}
+				else if(Mode_Select.modeNum == 2){
+					sceneName = "Game_Scene2";
+				}
+				else if(Mode_Select.modeNum == 3){
+					sceneName = "Game_Scene3";
+				}
 			} else if (selectedNum == 2) { // help
 				menuRestart.SetActive ( false );
-				menuSelectMap.SetActive ( true );
-				sceneName = "SelectMap_Scene";
-			}
+				menuSelectMode.SetActive ( true );
+				sceneName = "SelectMode_Scene";
+			} 
+
 			
 			
 			
 			// 선택 키 처리,
 			if ( Input.GetKey ( KeyCode.X ) ) {
-
 				Application.LoadLevel ( sceneName );
 			}
 			

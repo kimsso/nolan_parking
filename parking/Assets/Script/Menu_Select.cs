@@ -46,7 +46,7 @@ public class Menu_Select : MonoBehaviour {
 				menuHelp.SetActive ( false );
 				menuCredits.SetActive ( false );
 				menuExit.SetActive ( false );
-				sceneName = "SelectMap_Scene";
+				sceneName = "SelectMode_Scene";
 			} else if (selectedNum == 2) { // help
 				menuPlay.SetActive ( false );
 				menuHelp.SetActive ( true );
