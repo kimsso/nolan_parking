@@ -272,6 +272,59 @@ ModelImporter:
     4300100: Cylinder09
     4300102: Cylinder10
     4300104: Cylinder11
+    6400000: body
+    6400002: bottomlig0
+    6400004: bottomlig1
+    6400006: bottomlig2
+    6400008: bottomligh
+    6400010: Box01
+    6400012: Box02
+    6400014: Box03
+    6400016: Box04
+    6400018: Box05
+    6400020: Box06
+    6400022: Cylinder03
+    6400024: Cylinder04
+    6400026: Cylinder05
+    6400028: Cylinder06
+    6400030: Cylinder07
+    6400032: Cylinder09
+    6400034: Cylinder10
+    6400036: Cylinder11
+    6400038: door
+    6400040: glass
+    6400042: grill
+    6400044: grill_cove
+    6400046: headlight0
+    6400048: headlight1
+    6400050: headlight2
+    6400052: headlight3
+    6400054: headlight4
+    6400056: headlight_
+    6400058: hood
+    6400060: lights
+    6400062: lights01
+    6400064: logo
+    6400066: logo_rear
+    6400068: muffler_1
+    6400070: muffler_2
+    6400072: mufler_cas
+    6400074: Object01
+    6400076: Plane01
+    6400078: Plane03
+    6400080: rear_trunk
+    6400082: rear_windo
+    6400084: Sphere01
+    6400086: Sphere02
+    6400088: Sphere03
+    6400090: Sphere04
+    6400092: Sphere05
+    6400094: Sphere06
+    6400096: tail_lamp
+    6400098: Text01
+    6400100: Text03
+    6400102: windows
+    6400104: windscreen
   materials:
     importMaterials: 1
     materialName: 0
