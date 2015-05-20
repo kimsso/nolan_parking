@@ -9,21 +9,22 @@ public class Map_Select : MonoBehaviour {
 	public GameObject map1;
 	public GameObject map2;
 	public GameObject map3;
-
-	public int test;
-	public string test2;
 	
 	// Use this for initialization
 	void Start () {
 		preSceneName = "SelectMode_Scene";
-		test = Mode_Select.modeNum;
-	//	gameSceneName = "Game_Scene";
+		gameSceneName = "Game_Scene";
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
 
 		if(Mode_Select.modeNum == 1){
 			map1.SetActive(true);
 			map2.SetActive(false);
 			map3.SetActive(false);
-			
+		
 			gameSceneName = "Game_Scene";
 		}
 		else if(Mode_Select.modeNum == 2){
@@ -41,10 +42,6 @@ public class Map_Select : MonoBehaviour {
 			gameSceneName = "Game_Scene3";
 		}
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
 
 		if ( Input.GetKey ( KeyCode.X ) ) {
 			Application.LoadLevel ( gameSceneName );
