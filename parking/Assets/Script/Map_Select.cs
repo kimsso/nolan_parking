@@ -9,11 +9,15 @@ public class Map_Select : MonoBehaviour {
 	public GameObject map1;
 	public GameObject map2;
 	public GameObject map3;
+
+	public int test;
+	public string test2;
 	
 	// Use this for initialization
 	void Start () {
 		preSceneName = "SelectMode_Scene";
-		gameSceneName = "Game_Scene";
+		test = Mode_Select.modeNum;
+	//	gameSceneName = "Game_Scene";
 
 		if(Mode_Select.modeNum == 1){
 			map1.SetActive(true);
@@ -36,6 +40,7 @@ public class Map_Select : MonoBehaviour {
 			
 			gameSceneName = "Game_Scene3";
 		}
+
 	}
 	
 	// Update is called once per frame

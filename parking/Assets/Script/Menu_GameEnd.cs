@@ -38,7 +38,15 @@ public class Menu_GameEnd : MonoBehaviour {
 			if (selectedNum == 1) { // play
 				menuRestart.SetActive ( true );
 				menuSelectMode.SetActive ( false );
-				sceneName = "Game_Scene";
+				if(Mode_Select.modeNum == 1){
+					sceneName = "Game_Scene";
+				}
+				else if(Mode_Select.modeNum == 2){
+					sceneName = "Game_Scene2";
+				}
+				else if(Mode_Select.modeNum == 3){
+					sceneName = "Game_Scene3";
+				}
 			} else if (selectedNum == 2) { // help
 				menuRestart.SetActive ( false );
 				menuSelectMode.SetActive ( true );
@@ -50,7 +58,6 @@ public class Menu_GameEnd : MonoBehaviour {
 			
 			// 선택 키 처리,
 			if ( Input.GetKey ( KeyCode.X ) ) {
-
 				Application.LoadLevel ( sceneName );
 			}
 			
