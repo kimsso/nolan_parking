@@ -7,17 +7,12 @@ public class GameScene_Option : MonoBehaviour {
 
 	public GameObject spot;
 
-	public GameObject parkingSpot1;
-	public GameObject parkingSpot2;
-	public GameObject parkingSpot3;
-	public GameObject parkingSpot4;
-
 	public int spotNum;
 
 	// Use this for initialization
 	void Start () {
 		optionFlag=false;
-
+		/*
 		System.Random r = new System.Random ();
 
 		spotNum = r.Next (1, 5);
@@ -39,7 +34,7 @@ public class GameScene_Option : MonoBehaviour {
 			parkingSpot4.SetActive(true);
 			spot = parkingSpot4;
 			break;
-		}
+		}*/
 
 	}
 	
