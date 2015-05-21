@@ -39,10 +39,10 @@ public class Menu_GameEnd : MonoBehaviour {
 				menuRestart.SetActive ( true );
 				menuSelectMode.SetActive ( false );
 				if(Mode_Select.modeNum == 1){
-					sceneName = "Game_Scene";
+					sceneName = "Game_Scene2";
 				}
 				else if(Mode_Select.modeNum == 2){
-					sceneName = "Game_Scene2";
+					sceneName = "Game_Scene";
 				}
 				else if(Mode_Select.modeNum == 3){
 					sceneName = "Game_Scene3";
@@ -53,9 +53,7 @@ public class Menu_GameEnd : MonoBehaviour {
 				sceneName = "SelectMode_Scene";
 			} 
 
-			
-			
-			
+
 			// 선택 키 처리,
 			if ( Input.GetKey ( KeyCode.X ) ) {
 				Application.LoadLevel ( sceneName );

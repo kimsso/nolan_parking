@@ -13,7 +13,7 @@ public class Map_Select : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		preSceneName = "SelectMode_Scene";
-		gameSceneName = "Game_Scene";
+		gameSceneName = "Game_Scene2";
 
 	}
 	
@@ -25,14 +25,14 @@ public class Map_Select : MonoBehaviour {
 			map2.SetActive(false);
 			map3.SetActive(false);
 		
-			gameSceneName = "Game_Scene";
+			gameSceneName = "Game_Scene2";
 		}
 		else if(Mode_Select.modeNum == 2){
 			map1.SetActive(false);
 			map2.SetActive(true);
 			map3.SetActive(false);
 			
-			gameSceneName = "Game_Scene2";
+			gameSceneName = "Game_Scene";
 		}
 		else if(Mode_Select.modeNum == 3){
 			map1.SetActive(false);
