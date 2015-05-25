@@ -16,6 +16,7 @@ public class Menu_Select : MonoBehaviour {
 	public GameObject pageHelp;
 	public GameObject pageCredits;
 	public bool isPageOpen = false;
+	public bool possible = true;
 
 
 	public string sceneName;
@@ -29,17 +30,24 @@ public class Menu_Select : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+
 		if (Time.time > enableSelectTime) {
 			enableSelectTime = Time.time + selectDelay;
 
 			// 입력된 방향에 따른 처리
-			if ( (Input.GetKey ( KeyCode.LeftArrow )) && (selectedNum >= 2) ) {
+			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum >= 2)  ) {
 				selectedNum -= 1;
-			}
-			if ( (Input.GetKey ( KeyCode.RightArrow )) && (selectedNum <= 3) ) {
-				selectedNum += 1;
+				possible=false;
 			}
 
+			if ( possible && (Input.GetButton ( "Gear" ) == true) && (selectedNum <= 3) ) {
+				selectedNum += 1;
+				possible=false;
+			}
+
+			if( !possible && (Input.GetButton ( "GearBack" ) == false) && (Input.GetButton ( "Gear" ) == false)){
+				possible = true;
+			}
 			// selectedNum에 따른 커서 처리
 			if (selectedNum == 1) { // play
 				menuPlay.SetActive ( true );
@@ -64,10 +72,8 @@ public class Menu_Select : MonoBehaviour {
 				menuExit.SetActive ( true );
 			}
 
-
-
 			// 선택 키 처리,
-			if ( Input.GetKey ( KeyCode.X ) ) {
+			if ( Input.GetAxis ( "Accel" ) > 0 ) {
 				
 				// 상세 페이지 오픈 시 
 				if ( isPageOpen ) {
@@ -93,7 +99,7 @@ public class Menu_Select : MonoBehaviour {
 			}
 			
 			// 취소 키 처리,
-			if ( Input.GetKey ( KeyCode.Z ) ) {
+			if ( Input.GetAxis ( "Stop" ) > 0) {
 				// 상세 페이지 오픈 시 
 				if ( isPageOpen ) {
 					pageHelp.SetActive ( false );

@@ -53,7 +53,7 @@ public class GameScene_Option : MonoBehaviour {
 			optionFlag=false;
 		}
 
-		if(Input.GetKey (KeyCode.P)){
+		if(Input.GetButton("GearParking")){
 			if( spot.GetComponent<Game_PassFail>().success_flag )
 				Application.LoadLevel("Game_Success");
 			else

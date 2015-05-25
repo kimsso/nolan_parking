@@ -43,6 +43,7 @@ public class Menu_GameEnd : MonoBehaviour {
 	private float myLap;
 
 	public string sceneName;
+	public bool possible = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -83,6 +84,7 @@ public class Menu_GameEnd : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
 
 		if (isNewRecord) {
 
@@ -132,6 +134,33 @@ public class Menu_GameEnd : MonoBehaviour {
 					char2.material.color = Color.white;
 					char3.material.color = Color.white;
 					char1.text = strChar1.ToString();
+=======
+		
+		if (Time.time > enableSelectTime) {
+			enableSelectTime = Time.time + selectDelay;
+			
+			// 입력된 방향에 따른 처리
+			if ( possible && (Input.GetButton ( "Gear" ) == true) && (selectedNum >= 2)  ) {
+				selectedNum -= 1;
+				possible=false;
+			}
+			
+			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum <= 3) ) {
+				selectedNum += 1;
+				possible=false;
+			}
+			
+			if( !possible && (Input.GetButton ( "GearBack" ) == false) && (Input.GetButton ( "Gear" ) == false)){
+				possible = true;
+			}
+			
+			// selectedNum에 따른 커서 처리
+			if (selectedNum == 1) { // play
+				menuRestart.SetActive ( true );
+				menuSelectMode.SetActive ( false );
+				if(Mode_Select.modeNum == 1){
+					sceneName = "Game_Scene2";
+>>>>>>> f91c77572474d756f5f17e74233c1ff47b716f38
 				}
 				else if ( charnum == 2 ){
 					char2.material.color = Color.yellow;
@@ -179,6 +208,7 @@ public class Menu_GameEnd : MonoBehaviour {
 
 		} else {
 
+<<<<<<< HEAD
 			laptime.text = "Lap " + GameScene_Option.timeStr;
 
 			menus.SetActive (true);
@@ -217,6 +247,11 @@ public class Menu_GameEnd : MonoBehaviour {
 				if ( Input.GetKey ( KeyCode.X ) ) {
 					Application.LoadLevel ( sceneName );
 				}
+=======
+			// 선택 키 처리,
+			if ( Input.GetAxis ( "Accel" ) > 0 ) {
+				Application.LoadLevel ( sceneName );
+>>>>>>> f91c77572474d756f5f17e74233c1ff47b716f38
 			}
 
 			
