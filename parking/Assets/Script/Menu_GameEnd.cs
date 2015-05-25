@@ -84,7 +84,7 @@ public class Menu_GameEnd : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
+
 
 		if (isNewRecord) {
 
@@ -134,7 +134,9 @@ public class Menu_GameEnd : MonoBehaviour {
 					char2.material.color = Color.white;
 					char3.material.color = Color.white;
 					char1.text = strChar1.ToString();
-=======
+				}
+			}
+		}
 		
 		if (Time.time > enableSelectTime) {
 			enableSelectTime = Time.time + selectDelay;
