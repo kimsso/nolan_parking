@@ -1,6 +1,2 @@
-woosung
-33.22
-joon
-45.57
-moonsihwang
-50.44
+BAA
+25.8182

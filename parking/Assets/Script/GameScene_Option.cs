@@ -11,7 +11,7 @@ public class GameScene_Option : MonoBehaviour {
 
 	public GUIText _elapsedTime;
 	public static float _time;
-	public string timeStr;
+	public static string timeStr;
 
 	// Use this for initialization
 	void Start () {
