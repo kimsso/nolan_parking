@@ -17,8 +17,13 @@ public class Car_Handle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		turn = car.GetComponent<Car_Moving>().turning;
-
-		this.transform.Rotate (0, 0, -turn*10);
+		if (Input.GetAxis ("Handle") == 0) {
+			this.transform.Rotate (0, 0, 0);
+		}
+		else
+		{
+			this.transform.Rotate (0, 0, -turn* Input.GetAxis ("Handle"));
+		} 
 		//this.transform.RotateAround(center.transform.position,
 		  //                          new Vector3(-1.0f, 0.0f, 0.0f), turn*10);
 	}

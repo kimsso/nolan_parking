@@ -13,6 +13,7 @@ public class Menu_GameEnd : MonoBehaviour {
 	public GameObject menuSelectMode;
 	
 	public string sceneName;
+	public bool possible = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -27,11 +28,18 @@ public class Menu_GameEnd : MonoBehaviour {
 			enableSelectTime = Time.time + selectDelay;
 			
 			// 입력된 방향에 따른 처리
-			if ( (Input.GetKey ( KeyCode.LeftArrow )) && (selectedNum >= 1) ) {
+			if ( possible && (Input.GetButton ( "Gear" ) == true) && (selectedNum >= 2)  ) {
 				selectedNum -= 1;
+				possible=false;
 			}
-			if ( (Input.GetKey ( KeyCode.RightArrow )) && (selectedNum <= 2) ) {
+			
+			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum <= 3) ) {
 				selectedNum += 1;
+				possible=false;
+			}
+			
+			if( !possible && (Input.GetButton ( "GearBack" ) == false) && (Input.GetButton ( "Gear" ) == false)){
+				possible = true;
 			}
 			
 			// selectedNum에 따른 커서 처리
@@ -55,7 +63,7 @@ public class Menu_GameEnd : MonoBehaviour {
 
 
 			// 선택 키 처리,
-			if ( Input.GetKey ( KeyCode.X ) ) {
+			if ( Input.GetAxis ( "Accel" ) > 0 ) {
 				Application.LoadLevel ( sceneName );
 			}
 			

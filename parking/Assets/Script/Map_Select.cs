@@ -82,11 +82,11 @@ public class Map_Select : MonoBehaviour {
 			fopenFlag = false;
 		}
 
-		if ( Input.GetKey ( KeyCode.X ) ) {
+		if ( Input.GetAxis ( "Accel" ) > 0 ) {
 			Application.LoadLevel ( gameSceneName );
 		}
 		
-		if ( Input.GetKey ( KeyCode.Z ) ) {
+		if ( Input.GetAxis ( "Stop" ) > 0 ) {
 			Application.LoadLevel ( preSceneName );
 		}
 		
