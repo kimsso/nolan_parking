@@ -9,6 +9,10 @@ public class GameScene_Option : MonoBehaviour {
 
 	public int spotNum;
 
+	public GUIText _elapsedTime;
+	public static float _time;
+	public string timeStr;
+
 	// Use this for initialization
 	void Start () {
 		optionFlag=false;
@@ -36,6 +40,7 @@ public class GameScene_Option : MonoBehaviour {
 			break;
 		}*/
 
+		_time = 0;
 	}
 	
 	// Update is called once per frame
@@ -53,7 +58,14 @@ public class GameScene_Option : MonoBehaviour {
 				Application.LoadLevel("Game_Success");
 			else
 				Application.LoadLevel ("Game_Over");
+
 		}
+
+
+		// 경과 시간.
+
+		_time += Time.deltaTime;
+
 	}
 
 	void OnGUI(){
@@ -65,5 +77,10 @@ public class GameScene_Option : MonoBehaviour {
 			if( GUI.Button(new Rect(Screen.width/2, Screen.height/2+10, 80, 25), "Select Map") == true)
 				Application.LoadLevel("SelectMap_Scene");
 		}
+
+		// 경과시간
+		timeStr = "" + _time.ToString ("00.00");
+		timeStr = timeStr.Replace (".", ":");
+		_elapsedTime.text = "Time " + timeStr;
 	}
 }
