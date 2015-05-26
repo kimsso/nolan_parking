@@ -1,16 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Save_NewRecord.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Car_Moving.cs">
     <Files>
-      <File FileName="Assets\Script\Save_NewRecord.cs" Line="26" Column="3" />
-      <File FileName="Assets\Script\Map_Select.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Car_Moving.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Car_Moving.cs" Line="102" Column="14" />
       <File FileName="Assets\Script\Map_Rotate.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Menu_GameEnd.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Menu_GameEnd.cs" Line="221" Column="36" />
       <File FileName="Assets\Script\Car_Collider.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Car_Handle.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Car_Handle.cs" Line="21" Column="36" />
       <File FileName="Assets\Script\Game_PassFail.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GameScene_Option.cs" Line="62" Column="4" />
+      <File FileName="Assets\Script\GameScene_Option.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Camera_Moving.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Menu_Select.cs" Line="40" Column="20" />
+      <File FileName="Assets\Script\Map_Select.cs" Line="80" Column="1" />
+      <File FileName="Assets\Script\Menu_GameEndFail.cs" Line="63" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

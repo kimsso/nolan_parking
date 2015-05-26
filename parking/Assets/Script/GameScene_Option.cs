@@ -11,7 +11,7 @@ public class GameScene_Option : MonoBehaviour {
 
 	public GUIText _elapsedTime;
 	public static float _time;
-	public string timeStr;
+	public static string timeStr;
 
 	// Use this for initialization
 	void Start () {
@@ -49,11 +49,11 @@ public class GameScene_Option : MonoBehaviour {
 			optionFlag=true;
 		}
 
-		if (Input.GetKey (KeyCode.Z) ) {
+		if (Input.GetKey (KeyCode.Z) || Input.GetAxis ("Stop")>0 ) {
 			optionFlag=false;
 		}
 
-		if(Input.GetButton("GearParking")){
+		if(Input.GetKey (KeyCode.P) || Input.GetButton("GearParking") ){
 			if( spot.GetComponent<Game_PassFail>().success_flag )
 				Application.LoadLevel("Game_Success");
 			else

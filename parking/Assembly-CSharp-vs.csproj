@@ -58,6 +58,7 @@
      <Compile Include="Assets\Script\Map_Rotate.cs" />
      <Compile Include="Assets\Script\Map_Select.cs" />
      <Compile Include="Assets\Script\Menu_GameEnd.cs" />
+     <Compile Include="Assets\Script\Menu_GameEndFail.cs" />
      <Compile Include="Assets\Script\Menu_Select.cs" />
      <Compile Include="Assets\Script\Mode_Select.cs" />
      <Compile Include="Assets\Script\Save_NewRecord.cs" />
