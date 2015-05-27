@@ -18,13 +18,8 @@ public class Map_Select : MonoBehaviour {
 	private bool fopenFlag = true;
 
 	private String strRank1;
-	private String strRank2;
-	private String strRank3;
 
 	public GUIText _guiRank1;
-	public GUIText _guiRank2;
-	public GUIText _guiRank3;
-
 
 	
 	// Use this for initialization
@@ -67,26 +62,20 @@ public class Map_Select : MonoBehaviour {
 
 		// ranking GUItext update
 		if (fopenFlag) {
-			strRank1 = "1. " + reader.ReadLine ();
-			strRank1 = strRank1 + " " + reader.ReadLine ();
-			strRank2 = "2. " + reader.ReadLine ();
-			strRank2 = strRank2 + " " + reader.ReadLine ();
-			strRank3 = "3. " + reader.ReadLine ();
-			strRank3 = strRank3 + " " + reader.ReadLine ();
+			strRank1 = "Lap - " + reader.ReadLine ();
+			strRank1 = strRank1 + " " + reader.Read();
 			
 			_guiRank1.text = strRank1;
-			_guiRank2.text = strRank2;
-			_guiRank3.text = strRank3;
 
 			reader.Close ();
 			fopenFlag = false;
 		}
 
-		if ( Input.GetAxis ( "Accel" ) > 0 ) {
+		if ( (Input.GetAxis ( "Accel" ) > 0) || Input.GetKey ( KeyCode.X ) ) {
 			Application.LoadLevel ( gameSceneName );
 		}
 		
-		if ( Input.GetAxis ( "Stop" ) > 0 ) {
+		if ( (Input.GetAxis ( "Stop" ) > 0) || Input.GetKey ( KeyCode.Z )) {
 			Application.LoadLevel ( preSceneName );
 		}
 		

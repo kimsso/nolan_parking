@@ -34,20 +34,27 @@ public class Menu_Select : MonoBehaviour {
 		if (Time.time > enableSelectTime) {
 			enableSelectTime = Time.time + selectDelay;
 
-			// 입력된 방향에 따른 처리
+			// 입력된 방향에 따른 처리 (G27조작)
 			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum >= 2)  ) {
 				selectedNum -= 1;
 				possible=false;
 			}
-
 			if ( possible && (Input.GetButton ( "Gear" ) == true) && (selectedNum <= 3) ) {
 				selectedNum += 1;
 				possible=false;
 			}
-
 			if( !possible && (Input.GetButton ( "GearBack" ) == false) && (Input.GetButton ( "Gear" ) == false)){
 				possible = true;
 			}
+
+			// 입력된 방향에 따른 처리(키보드 조작)
+			if ( (Input.GetKey ( KeyCode.LeftArrow )) && (selectedNum >= 2) ) {
+				selectedNum -= 1;
+			}
+			if ( (Input.GetKey ( KeyCode.RightArrow )) && (selectedNum <= 3) ) {
+				selectedNum += 1;
+			}
+
 			// selectedNum에 따른 커서 처리
 			if (selectedNum == 1) { // play
 				menuPlay.SetActive ( true );
@@ -73,7 +80,7 @@ public class Menu_Select : MonoBehaviour {
 			}
 
 			// 선택 키 처리,
-			if ( Input.GetAxis ( "Accel" ) > 0 ) {
+			if ( (Input.GetAxis ( "Accel" ) > 0) || Input.GetKey (KeyCode.X) ) {
 				
 				// 상세 페이지 오픈 시 
 				if ( isPageOpen ) {
@@ -99,7 +106,7 @@ public class Menu_Select : MonoBehaviour {
 			}
 			
 			// 취소 키 처리,
-			if ( Input.GetAxis ( "Stop" ) > 0) {
+			if ( (Input.GetAxis ( "Stop" ) > 0) || Input.GetKey ( KeyCode.Z ) ) {
 				// 상세 페이지 오픈 시 
 				if ( isPageOpen ) {
 					pageHelp.SetActive ( false );

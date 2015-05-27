@@ -28,19 +28,25 @@ public class Mode_Select : MonoBehaviour {
 		if (Time.time > enableSelectTime) {
 			enableSelectTime = Time.time + selectDelay;
 
-			// 입력된 방향에 따른 처리
+			// 입력된 방향에 따른 처리(G27)
 			if ( possible && (Input.GetButton ( "Gear" ) == true) && (selectedNum >= 2)  ) {
 				selectedNum -= 1;
 				possible=false;
 			}
-			
-			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum <= 3) ) {
+			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum <= 2) ) {
 				selectedNum += 1;
 				possible=false;
 			}
-			
 			if( !possible && (Input.GetButton ( "GearBack" ) == false) && (Input.GetButton ( "Gear" ) == false)){
 				possible = true;
+			}
+
+			// 입력된 방향에 따른 처리(키보드)
+			if ( (Input.GetKey ( KeyCode.LeftArrow )) && (selectedNum >= 2) ) {
+				selectedNum -= 1;
+			}
+			if ( (Input.GetKey ( KeyCode.RightArrow )) && (selectedNum <= 2) ) {
+				selectedNum += 1;
 			}
 			
 			// selectedNum에 따른 커서 처리
@@ -62,12 +68,12 @@ public class Mode_Select : MonoBehaviour {
 			} 
 
 			// 선택 키 처리,
-			if ( Input.GetAxis ( "Accel" ) > 0 ) {
+			if ( (Input.GetAxis ( "Accel" ) > 0) || Input.GetKey (KeyCode.X) ) {
 				modeNum = selectedNum;
 				Application.LoadLevel ( "SelectMap_Scene" );
 			}
 
-			if ( Input.GetAxis ( "Stop" ) > 0 ) {
+			if ( (Input.GetAxis ( "Stop" ) > 0) || Input.GetKey (KeyCode.Z) ) {
 				Application.LoadLevel ( "Title_Scene" );
 			}	
 			

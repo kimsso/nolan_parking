@@ -78,24 +78,50 @@ public class Car_Moving : MonoBehaviour {
 			main_cam.transform.rotation = Quaternion.Lerp(main_cam.transform.rotation,car_cam.transform.rotation,0.05f);
 			
 			bool tmp = true;
-			
 
-			if( Input.GetButton("GearBack") && Input.GetAxis("Accel") > 0 )
+
+			/** speed up/down **/
+			// 이거 주석처리 해야됨!!!!!!
+			if(Input.GetAxis("Vertical")>0)
+			{
+				speed = Mathf.Lerp(speed,MAXspeed,acceleration);
+				this.transform.Rotate(Vector3.up	 * turning);
+			}		
+			else if(Input.GetAxis("Vertical")<0)
+			{
+				speed = Mathf.Lerp(speed,MINspeed,acceleration);
+				this.transform.Rotate(-Vector3.up	 * turning);
+			}
+			else
+			{
+				speed = Mathf.Lerp(speed,0,acceleration);
+				
+				if (speed > 0.5 )
+					this.transform.Rotate(Vector3.up	 * turning);
+				else if (speed < -0.5 )
+					this.transform.Rotate(-Vector3.up	 * turning);
+				else
+					speed = 0;
+			}
+			//// 여기까지!!!!
+			/// 
+			/// 
+
+			/** speed up/down **/
+			if( (Input.GetButton("GearBack") && Input.GetAxis("Accel") > 0)  )
 			{
 				tmp = false;
 				speed = Mathf.Lerp(speed,MINspeed,acceleration);
 				this.transform.Rotate(-Vector3.up	 * turning);
 			}
-			/** speed up/down **/
-			if(  Input.GetButton("Gear") && Input.GetAxis("Accel") > 0 )
+			else if(  (Input.GetButton("Gear") && Input.GetAxis("Accel") > 0)   )
 			{
 				speed = Mathf.Lerp(speed,MAXspeed,acceleration);
 				this.transform.Rotate(Vector3.up	 * turning);
 			}
-			
-			
 			else
 			{
+
 				if(tmp){
 					speed = Mathf.Lerp(speed,0,acceleration);
 					
@@ -106,19 +132,21 @@ public class Car_Moving : MonoBehaviour {
 					else
 						speed = 0;
 				}
-			}
+				else
+				{
+
+				}
+			}			
 			
 			
 			
-			
-			if(Input.GetAxis ("Stop")>0)
-				speed = Mathf.Lerp(speed,0,brake);
-			
+			if( (Input.GetAxis ("Stop")>0) || Input.GetKey (KeyCode.Space))
+				speed = Mathf.Lerp(speed,0,brake);			
 			
 			
 			/** direction, left/right **/
-			turning=Input.GetAxis ("Handle");
-			/*
+
+
 			if(Input.GetAxis("Horizontal")>0) //right key down
 			{
 				if(turning < 0.8f){
@@ -131,7 +159,11 @@ public class Car_Moving : MonoBehaviour {
 					turning -= 0.03f;
 				}
 				//this.transform.Rotate (Vector3.up * turning * Input.GetAxis("Vertical"));
-			}*/
+			}
+			else
+			{
+				turning=Input.GetAxis ("Handle");
+			}
 		}
 	}
 	
