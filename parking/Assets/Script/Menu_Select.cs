@@ -35,11 +35,11 @@ public class Menu_Select : MonoBehaviour {
 			enableSelectTime = Time.time + selectDelay;
 
 			// 입력된 방향에 따른 처리 (G27조작)
-			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum >= 2)  ) {
+			if ( possible && (Input.GetButton ( "Gear" ) == true) && (selectedNum >= 2)  ) {
 				selectedNum -= 1;
 				possible=false;
 			}
-			if ( possible && (Input.GetButton ( "Gear" ) == true) && (selectedNum <= 3) ) {
+			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum <= 3) ) {
 				selectedNum += 1;
 				possible=false;
 			}

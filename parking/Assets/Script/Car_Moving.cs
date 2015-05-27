@@ -104,39 +104,46 @@ public class Car_Moving : MonoBehaviour {
 				else
 					speed = 0;
 			}
-			*/
-			//// 여기까지!!!!
-			/// 
-			/// 
-
 			/** speed up/down **/
-			if( (Input.GetButton("GearBack") && Input.GetAxis("Accel") > 0)  )
+			
+			if( Input.GetButton("GearBack") && Input.GetAxis("Accel") > 0 )
 			{
 				tmp = false;
 				speed = Mathf.Lerp(speed,MINspeed,acceleration);
-				this.transform.Rotate(-Vector3.up	 * turning);
+				this.transform.Rotate(-Vector3.up    * turning);
 			}
-			else if(  (Input.GetButton("Gear") && Input.GetAxis("Accel") > 0)   )
+			/** speed up/down **/
+			if(  Input.GetButton("Gear") && Input.GetAxis("Accel") > 0 )
 			{
 				speed = Mathf.Lerp(speed,MAXspeed,acceleration);
-				this.transform.Rotate(Vector3.up	 * turning);
+				this.transform.Rotate(Vector3.up    * turning);
 			}
+			
+			
 			else
 			{
-
 				if(tmp){
-					speed = Mathf.Lerp(speed,0,acceleration);
 					
+					if( Input.GetButton ("Gear") ) {
+						if( (Input.GetAxis ("Stop")>0) || Input.GetKey (KeyCode.Space))
+							speed = Mathf.Lerp(speed,0,brake);
+						else
+							speed = Mathf.Lerp(speed,5,acceleration);
+					}
+					else if( Input.GetButton ("GearBack") ) {
+						if( (Input.GetAxis ("Stop")>0) || Input.GetKey (KeyCode.Space))
+							speed = Mathf.Lerp(speed,0,brake);
+						else
+							speed = Mathf.Lerp(speed,-5,acceleration);
+					}
+					else 
+						speed = Mathf.Lerp(speed,0,acceleration);               
 					if (speed > 0.5 )
-						this.transform.Rotate(Vector3.up	 * turning);
+						this.transform.Rotate(Vector3.up    * turning);
 					else if (speed < -0.5 )
-						this.transform.Rotate(-Vector3.up	 * turning);
-					else
-						speed = 0;
-				}
-				else
-				{
-
+						this.transform.Rotate(-Vector3.up    * turning);
+					/*else
+                  speed = 0;*/
 				}
 			}			
 			
