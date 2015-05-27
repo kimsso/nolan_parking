@@ -82,7 +82,7 @@ public class Car_Moving : MonoBehaviour {
 
 			/** speed up/down **/
 			// 이거 주석처리 해야됨!!!!!!
-			/*
+
 			if(Input.GetAxis("Vertical")>0)
 			{
 				speed = Mathf.Lerp(speed,MAXspeed,acceleration);

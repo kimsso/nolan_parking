@@ -13,7 +13,7 @@ public class Mode_Select : MonoBehaviour {
 	public GameObject mode3;
 	
 	public string sceneName;
-	public static int modeNum;
+	public static int modeNum = 2;
 	public bool possible = true;
 	
 	// Use this for initialization

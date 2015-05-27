@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
+using System;
 
 public class GameScene_Option : MonoBehaviour {
 	
@@ -10,12 +12,35 @@ public class GameScene_Option : MonoBehaviour {
 	public int spotNum;
 
 	public GUIText _elapsedTime;
+	public GUIText _bestTime;
+	public string bTime;
 	public static float _time;
 	public static string timeStr;
+
+
+	private FileInfo srcFile = null;
+	private StreamReader reader = null;
+	private String strFileName = null;
 
 	// Use this for initialization
 	void Start () {
 		optionFlag=false;
+
+		if (Mode_Select.modeNum == 1) {
+			strFileName = "./laptime/t1_1.txt";
+		} else if (Mode_Select.modeNum == 2) {
+			strFileName = "./laptime/t2_1.txt";
+		} else if (Mode_Select.modeNum == 3) {
+			strFileName = "./laptime/t3_1.txt";
+		}
+		
+		srcFile = new FileInfo (strFileName);
+		reader = srcFile.OpenText ();
+		reader.ReadLine ();// 이름 버리고,
+		bTime = (reader.ReadLine ()).Replace (".", ":");
+
+		reader.Close ();
+		//strRank1 = strRank1 + " - " + (reader.ReadLine()).Replace (".", ":");
 		/*
 		System.Random r = new System.Random ();
 
@@ -79,8 +104,11 @@ public class GameScene_Option : MonoBehaviour {
 		}
 
 		// 경과시간
-		timeStr = "" + _time.ToString ("00.00");
+		timeStr = _time.ToString ("00.00");
 		timeStr = timeStr.Replace (".", ":");
 		_elapsedTime.text = "Time " + timeStr;
+		_bestTime.text = "Best " + bTime;
+
+
 	}
 }

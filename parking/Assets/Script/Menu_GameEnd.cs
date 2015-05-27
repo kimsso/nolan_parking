@@ -94,7 +94,7 @@ public class Menu_GameEnd : MonoBehaviour {
 
 		if (isNewRecord) {
 
-			laptime.text = "Lap " + GameScene_Option.timeStr;
+			laptime.text = "" + GameScene_Option.timeStr;
 
 			names.SetActive (true);
 			menus.SetActive(false);
@@ -174,7 +174,7 @@ public class Menu_GameEnd : MonoBehaviour {
 						writer = new StreamWriter(strFileName);
 
 						writer.WriteLine ( ""+strChar1+strChar2+strChar3 );
-						writer.WriteLine ( myLap );
+						writer.WriteLine ( myLap.ToString ( "N2" ) );
 
 						writer.Close ();
 
@@ -195,7 +195,7 @@ public class Menu_GameEnd : MonoBehaviour {
 
 		} else {
 
-			laptime.text = "Lap " + GameScene_Option.timeStr;
+			laptime.text = "" + GameScene_Option.timeStr;
 
 			menus.SetActive (true);
 			if (Time.time > enableSelectTime) {

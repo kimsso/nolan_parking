@@ -73,8 +73,8 @@ public class Map_Select : MonoBehaviour {
 		// ranking GUItext update
 		if (fopenFlag) {
 
-			strRank1 = "Lap - " + reader.ReadLine ();
-			strRank1 = strRank1 + " " + (reader.ReadLine()).Replace (".", ":");
+			strRank1 = reader.ReadLine ();
+			strRank1 = strRank1 + " - " + (reader.ReadLine()).Replace (".", ":");
 			
 			_guiRank1.text = strRank1;
 
