@@ -11,8 +11,9 @@ public class Menu_GameEndFail : MonoBehaviour {
 	public GameObject menuRestart;
 	public GameObject menuSelectMap;	
 	public GameObject menuSelectMode;
-	
-	public string sceneName;
+
+    public string sceneName;
+    public bool possible = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -26,13 +27,30 @@ public class Menu_GameEndFail : MonoBehaviour {
 		if (Time.time > enableSelectTime) {
 			enableSelectTime = Time.time + selectDelay;
 			
-			// 입력된 방향에 따른 처리
+			// Keyboard 이용시 입력된 방향에 따른 처리
 			if ( (Input.GetKey ( KeyCode.LeftArrow )) && (selectedNum >= 1) ) {
 				selectedNum -= 1;
 			}
 			if ( (Input.GetKey ( KeyCode.RightArrow )) && (selectedNum <= 2) ) {
 				selectedNum += 1;
-			}
+            }
+            // Logitech gear 이용시 입력된 방향에 따른 처리
+            if (possible && (Input.GetButton("Gear") == true) && (selectedNum >= 1))
+            {
+                selectedNum -= 1;
+                possible = false;
+            }
+
+            if (possible && (Input.GetButton("GearBack") == true) && (selectedNum <= 2))
+            {
+                selectedNum += 1;
+                possible = false;
+            }
+
+            if (!possible && (Input.GetButton("GearBack") == false) && (Input.GetButton("Gear") == false))
+            {
+                possible = true;
+            }
 			
 			// selectedNum에 따른 커서 처리
 			if (selectedNum == 1) { // play
@@ -55,10 +73,15 @@ public class Menu_GameEndFail : MonoBehaviour {
 			
 			
 			// 선택 키 처리,
-			if ( Input.GetKey ( KeyCode.X ) ) {
+            if (Input.GetKey(KeyCode.X) || (Input.GetAxis("Accel") > 0))
+            {
 				Application.LoadLevel ( sceneName );
 			}
-			
+
+            if ( (Input.GetKey(KeyCode.Z) || Input.GetAxis("Stop") > 0) )
+            {
+                Application.LoadLevel("Title_Scene");
+            }	
 			
 			
 		}

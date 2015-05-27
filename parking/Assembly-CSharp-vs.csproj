@@ -61,6 +61,7 @@
      <Compile Include="Assets\Script\Menu_GameEndFail.cs" />
      <Compile Include="Assets\Script\Menu_Select.cs" />
      <Compile Include="Assets\Script\Mode_Select.cs" />
+     <Compile Include="Assets\Script\Save_NewRecord.cs" />
      <Compile Include="Assets\Script\anim_arrow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
