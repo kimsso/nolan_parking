@@ -1,3 +1,7 @@
 Base path: C:/Program Files/Unity/Editor/Data
+<<<<<<< HEAD
 Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-1904
+=======
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-4884
+>>>>>>> 0a91379cc9a5a481c6856156417d4e6232eb0ea9
 Cmd: getPlatforms
