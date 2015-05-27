@@ -52,7 +52,14 @@ public class Menu_GameEnd : MonoBehaviour {
 			selectedNum = 1;
 			
 			// 이전 laptime 받아와서 비교.
-			strFileName = "./laptime/t1_1.txt";
+			if (Mode_Select.modeNum == 1) {
+				strFileName = "./laptime/t1_1.txt";
+			} else if (Mode_Select.modeNum == 2) {
+				strFileName = "./laptime/t2_1.txt";
+			} else if (Mode_Select.modeNum == 3) {
+				strFileName = "./laptime/t3_1.txt";
+			}
+
 			srcFile = new FileInfo (strFileName);
 			reader = srcFile.OpenText ();
 			reader.ReadLine ();

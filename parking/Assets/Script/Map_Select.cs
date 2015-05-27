@@ -25,9 +25,19 @@ public class Map_Select : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		preSceneName = "SelectMode_Scene";
-		gameSceneName = "Game_Scene2";
+		if (Mode_Select.modeNum == 1) {
+			gameSceneName = "Game_Scene2";
+			strFileName = "./laptime/t1_1.txt";
+		} else if (Mode_Select.modeNum == 2) {
+			gameSceneName = "Game_Scene";
+			strFileName = "./laptime/t2_1.txt";
+		} else if (Mode_Select.modeNum == 3) {
+			gameSceneName = "Game_Scene3";
+			strFileName = "./laptime/t3_1.txt";
+		}
 
-		strFileName = "./laptime/t1_1.txt";
+
+
 		srcFile = new FileInfo (strFileName);
 		reader = srcFile.OpenText ();
 	}
@@ -62,8 +72,9 @@ public class Map_Select : MonoBehaviour {
 
 		// ranking GUItext update
 		if (fopenFlag) {
+
 			strRank1 = "Lap - " + reader.ReadLine ();
-			strRank1 = strRank1 + " " + reader.Read();
+			strRank1 = strRank1 + " " + (reader.ReadLine()).Replace (".", ":");
 			
 			_guiRank1.text = strRank1;
 
