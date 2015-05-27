@@ -16,6 +16,7 @@ public class Menu_Select : MonoBehaviour {
 	public GameObject pageHelp;
 	public GameObject pageCredits;
 	public bool isPageOpen = false;
+	public bool possible = true;
 
 
 	public string sceneName;
@@ -29,10 +30,24 @@ public class Menu_Select : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+
 		if (Time.time > enableSelectTime) {
 			enableSelectTime = Time.time + selectDelay;
 
-			// 입력된 방향에 따른 처리
+			// 입력된 방향에 따른 처리 (G27조작)
+			if ( possible && (Input.GetButton ( "GearBack" ) == true) && (selectedNum >= 2)  ) {
+				selectedNum -= 1;
+				possible=false;
+			}
+			if ( possible && (Input.GetButton ( "Gear" ) == true) && (selectedNum <= 3) ) {
+				selectedNum += 1;
+				possible=false;
+			}
+			if( !possible && (Input.GetButton ( "GearBack" ) == false) && (Input.GetButton ( "Gear" ) == false)){
+				possible = true;
+			}
+
+			// 입력된 방향에 따른 처리(키보드 조작)
 			if ( (Input.GetKey ( KeyCode.LeftArrow )) && (selectedNum >= 2) ) {
 				selectedNum -= 1;
 			}
@@ -46,7 +61,7 @@ public class Menu_Select : MonoBehaviour {
 				menuHelp.SetActive ( false );
 				menuCredits.SetActive ( false );
 				menuExit.SetActive ( false );
-				sceneName = "SelectMap_Scene";
+				sceneName = "SelectMode_Scene";
 			} else if (selectedNum == 2) { // help
 				menuPlay.SetActive ( false );
 				menuHelp.SetActive ( true );
@@ -64,10 +79,8 @@ public class Menu_Select : MonoBehaviour {
 				menuExit.SetActive ( true );
 			}
 
-
-
 			// 선택 키 처리,
-			if ( Input.GetKey ( KeyCode.X ) ) {
+			if ( (Input.GetAxis ( "Accel" ) > 0) || Input.GetKey (KeyCode.X) ) {
 				
 				// 상세 페이지 오픈 시 
 				if ( isPageOpen ) {
@@ -93,7 +106,7 @@ public class Menu_Select : MonoBehaviour {
 			}
 			
 			// 취소 키 처리,
-			if ( Input.GetKey ( KeyCode.Z ) ) {
+			if ( (Input.GetAxis ( "Stop" ) > 0) || Input.GetKey ( KeyCode.Z ) ) {
 				// 상세 페이지 오픈 시 
 				if ( isPageOpen ) {
 					pageHelp.SetActive ( false );

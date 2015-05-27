@@ -7,17 +7,16 @@ public class GameScene_Option : MonoBehaviour {
 
 	public GameObject spot;
 
-	public GameObject parkingSpot1;
-	public GameObject parkingSpot2;
-	public GameObject parkingSpot3;
-	public GameObject parkingSpot4;
-
 	public int spotNum;
+
+	public GUIText _elapsedTime;
+	public static float _time;
+	public static string timeStr;
 
 	// Use this for initialization
 	void Start () {
 		optionFlag=false;
-
+		/*
 		System.Random r = new System.Random ();
 
 		spotNum = r.Next (1, 5);
@@ -39,8 +38,9 @@ public class GameScene_Option : MonoBehaviour {
 			parkingSpot4.SetActive(true);
 			spot = parkingSpot4;
 			break;
-		}
+		}*/
 
+		_time = 0;
 	}
 	
 	// Update is called once per frame
@@ -49,16 +49,23 @@ public class GameScene_Option : MonoBehaviour {
 			optionFlag=true;
 		}
 
-		if (Input.GetKey (KeyCode.Z) ) {
+		if (Input.GetKey (KeyCode.Z) || Input.GetAxis ("Stop")>0 ) {
 			optionFlag=false;
 		}
 
-		if(Input.GetKey (KeyCode.P)){
+		if(Input.GetKey (KeyCode.P) || Input.GetButton("GearParking") ){
 			if( spot.GetComponent<Game_PassFail>().success_flag )
 				Application.LoadLevel("Game_Success");
 			else
 				Application.LoadLevel ("Game_Over");
+
 		}
+
+
+		// 경과 시간.
+
+		_time += Time.deltaTime;
+
 	}
 
 	void OnGUI(){
@@ -70,5 +77,10 @@ public class GameScene_Option : MonoBehaviour {
 			if( GUI.Button(new Rect(Screen.width/2, Screen.height/2+10, 80, 25), "Select Map") == true)
 				Application.LoadLevel("SelectMap_Scene");
 		}
+
+		// 경과시간
+		timeStr = "" + _time.ToString ("00.00");
+		timeStr = timeStr.Replace (".", ":");
+		_elapsedTime.text = "Time " + timeStr;
 	}
 }
