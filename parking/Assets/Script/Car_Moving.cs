@@ -20,6 +20,8 @@ public class Car_Moving : MonoBehaviour {
 	public GUIStyle test;
 	
 	public bool optionFlag;
+	public bool isGearOn;
+	public bool isGearBackOn;
 
 	
 	// Use this for initialization
@@ -83,7 +85,7 @@ public class Car_Moving : MonoBehaviour {
 			/** speed up/down **/
 			// 이거 주석처리 해야됨!!!!!!
 
-			if(Input.GetAxis("Vertical")>0)
+			/*if(Input.GetAxis("Vertical")>0)
 			{
 				speed = Mathf.Lerp(speed,MAXspeed,acceleration);
 				this.transform.Rotate(Vector3.up	 * turning);
@@ -104,16 +106,28 @@ public class Car_Moving : MonoBehaviour {
 				else
 					speed = 0;
 			}
-			/** speed up/down **/
+/** speed up/down **/
 			
-			if( Input.GetButton("GearBack") && Input.GetAxis("Accel") > 0 )
+			if( Input.GetAxis("Stop")>0) { 
+				if(Input.GetButton("Gear") )
+					isGearOn = true;
+				else if ( Input.GetButton("GearBack"))
+					isGearBackOn = true;
+			}
+			if( !Input.GetButton("Gear")) 
+				isGearOn = false;
+			if( !Input.GetButton("GearBack"))
+				isGearBackOn = false;
+			
+			
+			if( isGearBackOn && Input.GetAxis("Accel") > 0 )
 			{
 				tmp = false;
 				speed = Mathf.Lerp(speed,MINspeed,acceleration);
 				this.transform.Rotate(-Vector3.up    * turning);
 			}
 			/** speed up/down **/
-			if(  Input.GetButton("Gear") && Input.GetAxis("Accel") > 0 )
+			if(  isGearOn && Input.GetAxis("Accel") > 0 )
 			{
 				speed = Mathf.Lerp(speed,MAXspeed,acceleration);
 				this.transform.Rotate(Vector3.up    * turning);
@@ -124,13 +138,13 @@ public class Car_Moving : MonoBehaviour {
 			{
 				if(tmp){
 					
-					if( Input.GetButton ("Gear") ) {
+					if( isGearOn ) {
 						if( (Input.GetAxis ("Stop")>0) || Input.GetKey (KeyCode.Space))
 							speed = Mathf.Lerp(speed,0,brake);
 						else
 							speed = Mathf.Lerp(speed,5,acceleration);
 					}
-					else if( Input.GetButton ("GearBack") ) {
+					else if( isGearBackOn ) {
 						if( (Input.GetAxis ("Stop")>0) || Input.GetKey (KeyCode.Space))
 							speed = Mathf.Lerp(speed,0,brake);
 						else
@@ -145,7 +159,7 @@ public class Car_Moving : MonoBehaviour {
 					/*else
                   speed = 0;*/
 				}
-			}			
+			}		
 			
 			
 			
@@ -177,7 +191,7 @@ public class Car_Moving : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		GUI.Label(new Rect(0,0,1,1),"Turning: " + turning, test);
+		//GUI.Label(new Rect(0,0,1,1),"Turning: " + turning, test);
 	}
 	
 }
