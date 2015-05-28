@@ -106,9 +106,10 @@ public class Game_PassFail : MonoBehaviour {
 				else
 					mode_flag=false;
 			}
-			else if(Mode_Select.modeNum == 3){
-				mode_flag=true;
-			}
+		}
+
+		if(Mode_Select.modeNum == 3){
+			mode_flag=true;
 		}
 		
 		if(mode_flag &&

@@ -78,10 +78,7 @@ public class Menu_GameEndFail : MonoBehaviour {
 				Application.LoadLevel ( sceneName );
 			}
 
-            if ( (Input.GetKey(KeyCode.Z) || Input.GetAxis("Stop") > 0) )
-            {
-                Application.LoadLevel("Title_Scene");
-            }	
+            
 			
 			
 		}
